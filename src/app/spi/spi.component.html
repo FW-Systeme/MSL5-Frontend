@@ -1,1 +1,63 @@
-<p>spi works!</p>
+<div *ngIf="analogIn()">
+  <h2>Analog IN Entries</h2>
+  <table id="analog-in-table">
+    <thead>
+      <tr>
+        <th>Entry ID</th>
+        <th>Number</th>
+        <th>AnalogValue</th>
+        <th>Factor</th>
+        <th>Value</th>
+        <th>LowerBound</th>
+        <th>UpperBound</th>
+        <th>Type</th>
+        <th>IsLogging</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of analogIn()?.Entries">
+        <td>{{entry.id}}</td>
+        <td>{{entry.Number}}</td>
+        <td>{{entry.AnalogValue}}</td>
+        <td>{{entry.Factor}}</td>
+        <td>{{entry.Value}}</td>
+        <td>{{entry.LowerBound}}</td>
+        <td>{{entry.UpperBound}}</td>
+        <td>{{entry.Type}}</td>
+        <td>{{entry.IsLogging}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="analogOut()">
+  <h2>Analog OUT Entries</h2>
+  <table id="analog-out-table">
+    <thead>
+      <tr>
+        <th>Entry ID</th>
+        <th>Number</th>
+        <th>AnalogValue</th>
+        <th>Factor</th>
+        <th>Value</th>
+        <th>LowerBound</th>
+        <th>UpperBound</th>
+        <th>Type</th>
+        <th>IsLogging</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of analogOut()?.Entries">
+        <td>{{entry.id}}</td>
+        <td>{{entry.Number}}</td>
+        <td>{{entry.AnalogValue}}</td>
+        <td>{{entry.Factor}}</td>
+        <td>{{entry.Value}}</td>
+        <td>{{entry.LowerBound}}</td>
+        <td>{{entry.UpperBound}}</td>
+        <td>{{entry.Type}}</td>
+        <td>{{entry.IsLogging}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
