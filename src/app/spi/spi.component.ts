@@ -1,12 +1,14 @@
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { SpiService } from './spi.service';
-import { Analog } from './analog.interface';
+import { Analog, SpiTypeValues } from './analog.interface';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-spi',
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   templateUrl: './spi.component.html',
   styleUrl: './spi.component.scss'
@@ -15,6 +17,7 @@ export class SpiComponent implements OnInit {
 
   analogIn: WritableSignal<Analog | null> = signal(null);
   analogOut: WritableSignal<Analog | null> = signal(null);
+  spiTypes = SpiTypeValues;
 
   constructor(
     private spiService: SpiService

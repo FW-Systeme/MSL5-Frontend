@@ -26,3 +26,5 @@ export interface Analog {
 }
 
 export type SpiType = "0-10V" | "0.4-2V" | "0-20mA" | "4-20mA";
+
+export const SpiTypeValues: SpiType[] = ["0-10V", "0.4-2V", "0-20mA", "4-20mA"];

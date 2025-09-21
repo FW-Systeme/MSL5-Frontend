@@ -4,5 +4,6 @@ export const routes: Routes = [
   {path: '', redirectTo: '/auth', pathMatch: 'full'},
   {path: 'auth', loadComponent: () => import('./auth/auth.component').then(c => c.AuthComponent)},
   {path: 'gpio', loadComponent: () => import('./gpio/gpio.component').then(c => c.GpioComponent)},
-  {path: 'spi', loadComponent: () => import('./spi/spi.component').then(c => c.SpiComponent)}
+  {path: 'spi', loadComponent: () => import('./spi/spi.component').then(c => c.SpiComponent)},
+  {path: 'device', loadComponent: () => import('./device/device.component').then(c => c.DeviceComponent)},
 ];

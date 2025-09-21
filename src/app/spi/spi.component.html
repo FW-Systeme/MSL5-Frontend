@@ -3,7 +3,6 @@
   <table id="analog-in-table">
     <thead>
       <tr>
-        <th>Entry ID</th>
         <th>Number</th>
         <th>AnalogValue</th>
         <th>Factor</th>
@@ -16,13 +15,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let entry of analogIn()?.Entries">
-        <td>{{entry.id}}</td>
         <td>{{entry.Number}}</td>
         <td>{{entry.AnalogValue}}</td>
-        <td>{{entry.Factor}}</td>
+        <td><input [(ngModel)]="entry.Factor" type="number"/></td>
         <td>{{entry.Value}}</td>
-        <td>{{entry.LowerBound}}</td>
-        <td>{{entry.UpperBound}}</td>
+        <td><input type="number" [(ngModel)]="entry.LowerBound"></td>
+        <td><input type="number" [(ngModel)]="entry.UpperBound"></td>
         <td>{{entry.Type}}</td>
         <td>{{entry.IsLogging}}</td>
       </tr>
@@ -35,7 +33,6 @@
   <table id="analog-out-table">
     <thead>
       <tr>
-        <th>Entry ID</th>
         <th>Number</th>
         <th>AnalogValue</th>
         <th>Factor</th>
@@ -48,13 +45,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let entry of analogOut()?.Entries">
-        <td>{{entry.id}}</td>
         <td>{{entry.Number}}</td>
-        <td>{{entry.AnalogValue}}</td>
-        <td>{{entry.Factor}}</td>
+        <td><input [(ngModel)]="entry.AnalogValue" type="number"/></td>
+        <td><input [(ngModel)]="entry.Factor" type="number"/></td>
         <td>{{entry.Value}}</td>
-        <td>{{entry.LowerBound}}</td>
-        <td>{{entry.UpperBound}}</td>
+          <!-- <input [(ngModel)]="entry.Value" /> -->
+        <td><input [(ngModel)]="entry.LowerBound" type="number"/></td>
+        <td><input [(ngModel)]="entry.UpperBound" type="number"></td>
         <td>{{entry.Type}}</td>
         <td>{{entry.IsLogging}}</td>
       </tr>
