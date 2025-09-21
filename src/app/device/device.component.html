@@ -1,17 +1,104 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h2>Device Information</h2>
-      <table class="table table-striped">
-        <tr>
-          <th>Property</th>
-          <th>Value</th>
-        </tr>
-        <tr *ngFor="let item of deviceInfo() | keyvalue">
-          <td>{{ item.key }}</td>
-          <td>{{ item.value }}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
+  <h2>MSL-5 Geräteinformationen</h2>
+  <mat-list *ngIf="deviceInfo">
+    <mat-list-item>
+      <div class="row">
+        <div class="col-3">
+          <strong>Name</strong>
+        </div>
+        <div class="col-3">
+          <input [(ngModel)]="deviceInfo!.name" />
+        </div>
+        <div class="col-3 border-start">
+          <strong>Beschreibung</strong>
+        </div>
+        <div class="col-3">
+          <input type="text" [(ngModel)]="deviceInfo!.description" />
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div class="row">
+        <div class="col-3">
+          <strong>Erstellt</strong>
+        </div>
+        <div class="col-3">
+          {{deviceInfo!.createdAt | date:'medium'}}
+        </div>
+        <div class="col-3">
+          <strong>Objekt</strong>
+        </div>
+        <div class="col-3">
+          <input type="text" [(ngModel)]="deviceInfo!.object" />
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div class="row">
+        <div class="col-3">
+          <strong>Aktiv</strong>
+        </div>
+        <div class="col-3">
+          <input type="checkbox" [(ngModel)]="deviceInfo!.isActive" />
+        </div>
+        <div class="col-3">
+          <strong>Postleitzahl</strong>
+        </div>
+        <div class="col-3">
+          <input type="text" [(ngModel)]="deviceInfo!.postalcode" />
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div class="row">
+        <div class="col-3">
+          <strong>Periode</strong>
+        </div>
+        <div class="col-3">
+          {{deviceInfo!.period}}
+        </div>
+        <div class="col-3">
+          <strong>Stadt</strong>
+        </div>
+        <div class="col-3">
+          <input type="text" [(ngModel)]="deviceInfo!.city" />
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div class="row">
+        <div class="col-3">
+          <strong>Hersteller</strong>
+        </div>
+        <div class="col-3">
+          <input type="text" [(ngModel)]="deviceInfo!.manufacturer" />
+        </div>
+        <div class="col-3">
+          <strong>Straße</strong>
+        </div>
+        <div class="col-3">
+          <input type="text" [(ngModel)]="deviceInfo!.street" />
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <br><br>
+    <!-- <div *ngFor="let property of deviceInfo() | keyvalue">
+      <mat-list-item>
+        <div class="row">
+          <div class="col-6">
+            <strong>{{ property.key }}</strong>
+          </div>
+          <div class="col-6">
+            {{ property.value }}
+          </div>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div> -->
+  </mat-list>
 </div>

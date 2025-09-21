@@ -40,9 +40,10 @@ body {
 html, body { height: 100%; }
 body {
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: url('./assets/background.png') no-repeat center center fixed;
+  background: url('./assets/background.png') repeat center center fixed;
 }
 
 .container {
+  padding-top: 0.5rem;
   min-height: calc(100vh - 128px);
 }

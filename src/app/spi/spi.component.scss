@@ -6,16 +6,17 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 40px;
-}
-th, td {
-  border: 1px solid #bbb;
-  padding: 8px 12px;
-  text-align: center;
-}
-th {
-  background-color: #eee;
-}
-
-input {
-  max-width: 100px;
+  background-color: #faf9fd;
+  th, td {
+    border: 1px solid #bbb;
+    padding: 8px 12px;
+    text-align: center;
+  }
+  th {
+    background-color: #eee;
+  }
+  
+  input {
+    max-width: 100px;
+  }
 }
