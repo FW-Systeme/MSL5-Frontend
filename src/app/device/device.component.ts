@@ -1,16 +1,19 @@
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { Device } from './device.interface';
 import { DeviceService } from './device.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-device',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './device.component.html',
   styleUrl: './device.component.scss'
 })
 export class DeviceComponent implements OnInit {
 
-  device: WritableSignal<Device | null> = signal(null);
+  deviceInfo: WritableSignal<Device | null> = signal(null);
 
   constructor(
     private deviceService: DeviceService
@@ -18,8 +21,8 @@ export class DeviceComponent implements OnInit {
 
   async ngOnInit() {
     let device = await this.deviceService.getDeviceData();
-    if (device) this.device.set(device as Device);
-    console.log(this.device());
+    if (device) this.deviceInfo.set(device as Device);
+    console.log(this.deviceInfo());
   }
 
 }
