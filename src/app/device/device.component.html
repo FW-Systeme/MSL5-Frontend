@@ -3,16 +3,16 @@
   <mat-list *ngIf="deviceInfo">
     <mat-list-item>
       <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Name</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input [(ngModel)]="deviceInfo!.name" />
         </div>
-        <div class="col-3 border-start">
+        <div class="col-lg-3 col-6">
           <strong>Beschreibung</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="text" [(ngModel)]="deviceInfo!.description" />
         </div>
       </div>
@@ -20,16 +20,16 @@
     <mat-divider></mat-divider>
     <mat-list-item>
       <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Erstellt</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           {{deviceInfo!.createdAt | date:'medium'}}
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Objekt</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="text" [(ngModel)]="deviceInfo!.object" />
         </div>
       </div>
@@ -37,16 +37,16 @@
     <mat-divider></mat-divider>
     <mat-list-item>
       <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Aktiv</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="checkbox" [(ngModel)]="deviceInfo!.isActive" />
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Postleitzahl</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="text" [(ngModel)]="deviceInfo!.postalcode" />
         </div>
       </div>
@@ -54,16 +54,16 @@
     <mat-divider></mat-divider>
     <mat-list-item>
       <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Periode</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           {{deviceInfo!.period}}
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Stadt</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="text" [(ngModel)]="deviceInfo!.city" />
         </div>
       </div>
@@ -71,34 +71,23 @@
     <mat-divider></mat-divider>
     <mat-list-item>
       <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Hersteller</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="text" [(ngModel)]="deviceInfo!.manufacturer" />
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <strong>Straße</strong>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-6">
           <input type="text" [(ngModel)]="deviceInfo!.street" />
         </div>
       </div>
     </mat-list-item>
     <mat-divider></mat-divider>
-    <br><br>
-    <!-- <div *ngFor="let property of deviceInfo() | keyvalue">
-      <mat-list-item>
-        <div class="row">
-          <div class="col-6">
-            <strong>{{ property.key }}</strong>
-          </div>
-          <div class="col-6">
-            {{ property.value }}
-          </div>
-        </div>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-    </div> -->
+    <mat-list-item>
+      <button class="btn btn-success me-5 float-end" (click)="saveDeviceInfo()">Speichern</button>
+    </mat-list-item>
   </mat-list>
 </div>

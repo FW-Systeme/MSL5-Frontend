@@ -17,4 +17,8 @@ export class DeviceService {
   async getDeviceData() {
     return firstValueFrom(this.http.get<Device>(this.appService.backendURL() + 'device'));
   }
+
+  async updateDeviceData(device: Device) {
+    return firstValueFrom(this.http.post<Device>(this.appService.backendURL() + 'device', device));
+  }
 }

@@ -34,4 +34,9 @@ export class DeviceComponent implements OnInit {
     console.log(this.deviceInfo);
   }
 
+  async saveDeviceInfo() {
+    let resp = await this.deviceService.updateDeviceData(this.deviceInfo!);
+    console.log("Saved device info:", resp);
+  }
+
 }
