@@ -3,10 +3,9 @@
   <table id="analog-in-table">
     <thead>
       <tr>
-        <th>Number</th>
-        <th>AnalogValue</th>
-        <th>Factor</th>
+        <th>Name</th>
         <th>Value</th>
+        <th>Factor</th>
         <th>LowerBound</th>
         <th>UpperBound</th>
         <th>Type</th>
@@ -14,15 +13,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of analogIn()?.Entries">
-        <td>{{entry.Number}}</td>
-        <td>{{entry.AnalogValue}}</td>
-        <td><input [(ngModel)]="entry.Factor" type="number"/></td>
-        <td>{{entry.Value}}</td>
-        <td><input type="number" [(ngModel)]="entry.LowerBound"></td>
-        <td><input type="number" [(ngModel)]="entry.UpperBound"></td>
-        <td>{{entry.Type}}</td>
-        <td>{{entry.IsLogging}}</td>
+      <tr *ngFor="let analogIn of analogIn()">
+        <td>{{analogIn.name}}</td>
+        <td>{{analogIn.values[0].val}}</td>
+        <td><input [(ngModel)]="analogIn.factor" type="number"/></td>
+        <td><input type="number" [(ngModel)]="analogIn.lowerBound"></td>
+        <td><input type="number" [(ngModel)]="analogIn.upperBound"></td>
+        <td>
+          <select>
+            <option *ngFor="let type of spiTypes" [value]="type" [selected]="type === analogIn.type">{{type}}</option>
+          </select>
+        </td>
+        <td>
+          <input type="checkbox" [(ngModel)]="analogIn.isLogging"/>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -33,10 +37,9 @@
   <table id="analog-out-table">
     <thead>
       <tr>
-        <th>Number</th>
-        <th>AnalogValue</th>
-        <th>Factor</th>
+        <th>Name</th>
         <th>Value</th>
+        <th>Factor</th>
         <th>LowerBound</th>
         <th>UpperBound</th>
         <th>Type</th>
@@ -44,16 +47,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of analogOut()?.Entries">
-        <td>{{entry.Number}}</td>
-        <td><input [(ngModel)]="entry.AnalogValue" type="number"/></td>
-        <td><input [(ngModel)]="entry.Factor" type="number"/></td>
-        <td>{{entry.Value}}</td>
-          <!-- <input [(ngModel)]="entry.Value" /> -->
-        <td><input [(ngModel)]="entry.LowerBound" type="number"/></td>
-        <td><input [(ngModel)]="entry.UpperBound" type="number"></td>
-        <td>{{entry.Type}}</td>
-        <td>{{entry.IsLogging}}</td>
+      <tr *ngFor="let analogOut of analogOut()">
+        <td>{{analogOut.name}}</td>
+        <td><input [(ngModel)]="analogOut.values[0].val" /></td>
+        <td><input [(ngModel)]="analogOut.factor" type="number"/></td>
+        <td><input [(ngModel)]="analogOut.lowerBound" type="number"/></td>
+        <td><input [(ngModel)]="analogOut.upperBound" type="number"></td>
+        <td>
+          <select>
+            <option *ngFor="let type of spiTypes" [value]="type" [selected]="type === analogOut.type">{{type}}</option>
+          </select>
+        </td>
+        <td>
+          <input type="checkbox" [(ngModel)]="analogOut.isLogging"/>
+        </td>
       </tr>
     </tbody>
   </table>

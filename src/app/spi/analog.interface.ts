@@ -3,26 +3,26 @@ export interface Device {
   Chip: number;
 }
 
-export interface Entry {
-  id: number;
-  analog: number;
-  Number: number;
-  AnalogValue: number;
-  Factor: number;
-  Value: number;
-  LowerBound: number;
-  UpperBound: number;
-  Type: SpiType;
-  IsLogging: boolean;
+export interface Value {
+  val: number;
+  time: number;
 }
 
 export interface Analog {
-  id: number;
-  Type: string;
-  Device: Device;
-  Entries: Entry[];
-  AnalogType: "IN" | "OUT";
+  _id?: string;
+  name: string;
+  device: Device;
+  type: string;
+  analogType: "IN" | "OUT";
+  values: Value[];
   createdAt: Date;
+  number: number;
+  spiType: SpiType;
+  unit: string;
+  isLogging: boolean;
+  lowerBound: number;
+  upperBound: number;
+  factor: number;
 }
 
 export type SpiType = "0-10V" | "0.4-2V" | "0-20mA" | "4-20mA";

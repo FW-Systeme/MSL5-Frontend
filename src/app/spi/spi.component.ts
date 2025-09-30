@@ -15,8 +15,8 @@ import { FormsModule } from '@angular/forms'
 })
 export class SpiComponent implements OnInit {
 
-  analogIn: WritableSignal<Analog | null> = signal(null);
-  analogOut: WritableSignal<Analog | null> = signal(null);
+  analogIn: WritableSignal<Analog[]> = signal([]);
+  analogOut: WritableSignal<Analog[]> = signal([]);
   spiTypes = SpiTypeValues;
 
   constructor(

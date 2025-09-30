@@ -15,11 +15,11 @@ export class SpiService {
   ) {}
 
   async getAnalogIn() {
-    return firstValueFrom(this.http.get<Analog>(this.appService.backendURL()+"spi/analog-in"));
+    return firstValueFrom(this.http.get<Analog[]>(this.appService.backendURL()+"spi/analog-in"));
   }
 
   async getAnalogOut() {
-    return firstValueFrom(this.http.get<Analog>(this.appService.backendURL()+"spi/analog-out"));
+    return firstValueFrom(this.http.get<Analog[]>(this.appService.backendURL()+"spi/analog-out"));
   }
 
 }
